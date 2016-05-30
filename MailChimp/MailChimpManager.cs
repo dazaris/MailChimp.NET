@@ -1690,6 +1690,22 @@ namespace MailChimp
             return MakeAPICall<SegmentResult>(apiAction, args);
         }
 
+        public CompleteResult UpdateSegment(string listId, string segmentId, SegmentTestOptions segmentOptions)
+        {
+            // our api action:
+            string apiAction = "lists/segment-update";
+
+            // create our arguements object:
+            object args = new
+            {
+                apikey = this.APIKey,
+                id = listId,
+                seg_id = segmentId,
+                opts = segmentOptions
+            };
+            return MakeAPICall<CompleteResult>(apiAction, args);
+        }
+
         /// <summary>
         /// Return the Webhooks configured for the given list
         /// </summary>
